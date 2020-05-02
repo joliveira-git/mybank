@@ -1,4 +1,4 @@
-#Micro-App Em Angular Usando Web Components
+# Micro-App Em Angular Usando Web Components
 
 Projeto
 
@@ -10,7 +10,7 @@ Tecnologias utilizadas:
 Danilo Rodrigues - Zup
 28/04 - 18:00
 
-#Era Monolítica
+# Era Monolítica
 
 Base do desenvolvimento front-end atual
 Como se entrega front-end: equipe responsável por toda a aplicação de um produto
@@ -23,7 +23,7 @@ E-Comerce
 A cada alteração tem que gerar tudo de novo. Uma peça grande entregável
 
 
-#O antes e o depois:
+# O antes e o depois:
  
 # Monolítico
   - Deploy de uma grande aplicação
