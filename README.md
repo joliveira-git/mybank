@@ -1,4 +1,4 @@
-# Micro-App Em Angular Usando Web Components
+#Micro-App Em Angular Usando Web Components
 
 Projeto
 
@@ -10,7 +10,7 @@ Tecnologias utilizadas:
 Danilo Rodrigues - Zup
 28/04 - 18:00
 
-# Era Monolítica
+#Era Monolítica
 
 Base do desenvolvimento front-end atual
 Como se entrega front-end: equipe responsável por toda a aplicação de um produto
@@ -23,52 +23,53 @@ E-Comerce
 A cada alteração tem que gerar tudo de novo. Uma peça grande entregável
 
 
-# O antes e o depois:
+#O antes e o depois:
  
-Monolítico
-- Deploy de uma grande aplicação
-- Geralmente desolvidade por um só time
-- Atualizações ou correções de bugs afetam toda a aplicação
+# Monolítico
+  - Deploy de uma grande aplicação
+  - Geralmente desolvidade por um só time
+  - Atualizações ou correções de bugs afetam toda a aplicação
 
-Micro Frontends
-Arquitetura que afeta não só o código, mas tbm a estrutura organizacional da empresa.
-Flexibilidade com times autônomos
+# Micro Frontends
+  Arquitetura que afeta não só o código, mas tbm a estrutura organizacional da empresa.
+  Flexibilidade com times autônomos
 
-- Maior escalabilidade organizacional com time autônomos
-- Maior habilidade de atualizações e correção de bugs sem afetar o todo
-- Agilidade de deploy de partes
+  - Maior escalabilidade organizacional com time autônomos
+  - Maior habilidade de atualizações e correção de bugs sem afetar o todo
+  - Agilidade de deploy de partes
 
-Entrega de valor mais rápido
+  Entrega de valor mais rápido
 
-Micro Frotend: estilo arquitetural onde aplicações front-end são entregáveis independentemente e que formam um todo maior.
+  Micro Frotend: estilo arquitetural onde aplicações front-end são entregáveis independentemente e que formam um todo maior.
 
 
 # Web Components
 
-1- Registra um novo elemento customizado
-Ou seja, o elemento customizado vem estendido de um elemento HTML já existente.
+  1- Registra um novo elemento customizado
+  Ou seja, o elemento customizado vem estendido de um elemento HTML já existente.
 
-2 - O aplicativo adiciona o custom element no no DOM
-o Browser guarda a tag e quando vier a classe web component, automaticamente instancia
+  2 - O aplicativo adiciona o custom element no no DOM
+  o Browser guarda a tag e quando vier a classe web component, automaticamente instancia
 
-3 - Browser instancia a component-based class 
+  3 - Browser instancia a component-based class 
 
-4 - Provê a instância com data binding e change detection.
+  4 - Provê a instância com data binding e change detection.
 
 Exemplo:
 
+ ```
+  class WordCount extends HTMLParagraphElement {
+      constructor(){
+          // Always call super first in constructor
+          super();
+
+          // Element functionality written in here
+
+      }
+  }
+
+  customElements.define('word-count', WordCount, { extends: 'p' });
 ```
-class WordCount extends HTMLParagraphElement {
-    constructor(){
-        // Always call super first in constructor
-        super();
-
-        // Element functionality written in here
-
-    }
-}
-
-customElements.define('word-count', WordCount, { extends: 'p' });
 
 # Angular + Web Components
 Como funciona Web Components no Angular:
@@ -77,7 +78,7 @@ Angular tem um módulo AngularElement
 
 Angular App:
 1 - Constroi o componente no Angular e nele deve-se construir um custom element class
-
+```
 MyComponent:
 
  CreateCustomElement()
@@ -87,29 +88,28 @@ MyComponent:
            |
            V
  customElements.define("my-tag", MyElementClass)
+```
+  2 - Registra com browser
 
+  Browser:
+      CustomElementRegistry:
+          ...
+          myTag
+          MyElementClass
+          ...
+              |
+              V
+      myElementInstance
 
-2 - Registra com browser
+      --------------------------
+              |
+              v
 
-Browser:
-    CustomElementRegistry:
-        ...
-        myTag
-        MyElementClass
-        ...
-            |
-            V
-    myElementInstance
+      DOM:
+      <my-tag my-input='x'> </my-tag>
+```
 
-    --------------------------
-            |
-            v
-
-    DOM:
-    <my-tag my-input='x'> </my-tag>
-
-
-Arquitetura da Aplicação:
+#Arquitetura da Aplicação:
 
     - APP MASTER: Shell ou Wrapper da aplicação -----
         - HEADER-------------------------------------
