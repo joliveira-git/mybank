@@ -78,20 +78,20 @@ Angular tem um módulo AngularElement
 
 Angular App:
 1 - Constroi o componente no Angular e nele deve-se construir um custom element class
+  MyComponent:
 ```
-MyComponent:
-
- CreateCustomElement()
-           |
-           V
-      MyElementClass
-           |
-           V
- customElements.define("my-tag", MyElementClass)
+   CreateCustomElement()
+             |
+             V
+        MyElementClass
+             |
+             V
+   customElements.define("my-tag", MyElementClass)
 ```
   2 - Registra com browser
 
   Browser:
+```
       CustomElementRegistry:
           ...
           myTag
@@ -110,7 +110,7 @@ MyComponent:
 ```
 
 #Arquitetura da Aplicação:
-
+```
     - APP MASTER: Shell ou Wrapper da aplicação -----
         - HEADER-------------------------------------
         -                                           -
@@ -123,7 +123,7 @@ MyComponent:
         -                                           -
         -                                           -
         ---------------------------------------------
-
+```
 # Bora pro código:
 
 # 1 - Criar a aplicação principal
